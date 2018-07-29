@@ -54,7 +54,7 @@
  (define cfg (file->sexp-list "yuni/config/generic-runtime.scm"))
  (define (emit-load l)
    (for-each (lambda (e)
-               (write (list 'load e) p)
+               (write (list 'load (string-append "yuni/" e)) p)
                (newline p)) 
              l))
 
