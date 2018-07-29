@@ -57,6 +57,9 @@
                (write (list 'load (string-append "yuni/" e)) p)
                (newline p)) 
              l))
+ ;; Emit prelude
+ (write '(define (command-line) (list "" "" "" "" "")) p)
+ (newline p)
 
  ;; Emit runtime library load
  (let ((generic (assoc 'generic cfg))

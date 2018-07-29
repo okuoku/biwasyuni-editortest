@@ -12,14 +12,13 @@ var appprovider = function(bogus){
     // Root
     app.get("/", function(req, res){ res.redirect("/index.html")});
 
-    // Static provider
-    const yuniroot = Path.join(__dirname, "../yuni");
-    var serve_yuniroot = express.static(yuniroot);
-    app.use("/yuni", serve_yuniroot);
-    console.log(yuniroot);
-
     // Parcel application
     app.use(bundler.middleware());
+
+    // Static provider
+    const approot = Path.join(__dirname, "..");
+    var serve_approot = express.static(approot);
+    app.use("/", serve_approot);
 
     app.listen(8080);
 };
