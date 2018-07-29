@@ -47,6 +47,9 @@
              (loop next files))))
        files))))
 
+(unless (file-exists? "dist")
+  (js-invoke *fs* "mkdirSync" "dist"))
+
 (let ((p (open-output-string)))
  (define cfg (file->sexp-list "yuni/config/generic-runtime.scm"))
  (define (emit-load l)
