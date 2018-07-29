@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "description": "editortest",
   "main": "index.js",
-  "license": "MIT",
+  "license": "CC0-1.0",
   "dependencies": {
     "biwascheme": "^0.6.8",
     "bootstrap": "^4.1.3",
@@ -13,7 +13,12 @@
     "prosemirror-tables": "^0.7.6"
   },
   "devDependencies": {
+    "express": "^4.16.3",
+    "node-sass": "^4.9.2",
     "nw": "^0.32.0",
     "parcel": "^1.9.7"
+  },
+  "scripts": {
+    "start": "node scripts/parcel-run.js"
   }
 }
