@@ -1,3 +1,6 @@
 [submodule "biwasyuni"]
 	path = biwasyuni
 	url = https://github.com/okuoku/biwasyuni
+[submodule "yuni"]
+	path = yuni
+	url = https://github.com/okuoku/yuni
