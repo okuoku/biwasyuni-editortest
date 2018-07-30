@@ -5,10 +5,12 @@ var bfs = require('./node_modules/browserfs');
 
 var root = document.body;
 
-var load_prosemirror = function(recv){
-    import('./loader_prosemirror.js').then(function(lib) {
-        recv(lib);
-    });
+var async_loaders = {
+    prosemirror: import('./loader_prosemirror.js')
+};
+
+var js_load_async = function(name, cb){
+    async_loaders[name].then(cb);
 };
 
 var loadfs = biwasloader.loadfs("/");
@@ -17,6 +19,8 @@ biwasyuni.switch_console_output(); // Use console.log
 biwasyuni.add_module("m", m);
 biwasyuni.add_module("browserfs", bfs);
 biwasyuni.add_module("fs", loadfs); // FIXME: ???
+biwasyuni.add_module("js-load-async", js_load_async);
+biwasyuni.add_module("document-root", root);
 biwasyuni.set_current_fs(loadfs);
 
 m.render(root, "Hello."); // debug
