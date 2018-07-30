@@ -7,7 +7,8 @@ var appprovider = function(bogus){
     const input = Path.join(__dirname, "../index.html");
 
     var app = express();
-    var options = { };
+    // It seems detailedReport requires !watch
+    var options = { watch: false, detailedReport: true };
     var bundler = new bd(input, options);
     // Root
     app.get("/", function(req, res){ res.redirect("/index.html")});
