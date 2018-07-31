@@ -1,8 +1,8 @@
+require('./node_modules/bootstrap');
 var m = require('./node_modules/mithril');
 var biwasyuni = require('./biwasyuni/biwasyuni_core.js');
 var biwasloader = require('./loader_biwasyuni.js');
 var bfs = require('./node_modules/browserfs');
-require('./node_modules/bootstrap');
 
 var root = document.body;
 
