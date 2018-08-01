@@ -2,12 +2,12 @@ require('./node_modules/bootstrap');
 var m = require('./node_modules/mithril');
 var biwasyuni = require('./biwasyuni/biwasyuni_core.js');
 var biwasloader = require('./loader_biwasyuni.js');
-var bfs = require('./node_modules/browserfs');
 
 var root = document.body;
 
 var async_loaders = {
-    prosemirror: import('./loader_prosemirror.js')
+    prosemirror: import('./loader_prosemirror.js'),
+    browserfs: import('./node_modules/browserfs')
 };
 
 var js_load_async = function(name, cb){
@@ -18,7 +18,6 @@ var loadfs = biwasloader.loadfs("/");
 
 biwasyuni.switch_console_output(); // Use console.log
 biwasyuni.add_module("m", m);
-biwasyuni.add_module("browserfs", bfs);
 biwasyuni.add_module("fs", loadfs); // FIXME: ???
 biwasyuni.add_module("js-load-async", js_load_async);
 biwasyuni.add_module("document-root", root);
