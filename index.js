@@ -27,5 +27,5 @@ biwasyuni.set_current_fs(loadfs);
 m.render(root, "Hello."); // debug
 
 biwasyuni.run("(load \"boot.scm\")", 
-              function(res){ throw res; },
+              function(res){ console.log("init done.", res); },
               function(e){ throw e; });
