@@ -84,3 +84,13 @@
  (newline p)
  (string->file "dist/boot.scm" (get-output-string p)))
 
+;; Readback dist/boot.scm and convert to load list
+(let ((l (file->sexp-list "dist/boot.scm")))
+ (let loop ((q l)
+            (cur '()))
+   (if (null? q)
+     (list->js-array (reverse cur))
+     (case (caar q)
+       ((load yuni/add-library-override-path!)
+        (loop (cdr q) (cons (cadar q) cur)))
+       (else (loop (cdr q) cur))))))

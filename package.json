@@ -17,11 +17,14 @@
   },
   "devDependencies": {
     "express": "^4.16.3",
+    "fs-extra": "^7.0.0",
     "node-sass": "^4.9.2",
     "nw": "^0.32.0",
     "parcel": "^1.9.7"
   },
   "scripts": {
-    "start": "node scripts/parcel-run.js"
+    "start": "node scripts/parcel-run.js debug",
+    "start_minify": "node scripts/parcel-run.js debug_minify",
+    "build": "node scripts/parcel-run.js release"
   }
 }
