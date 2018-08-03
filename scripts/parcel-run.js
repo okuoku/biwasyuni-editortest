@@ -42,7 +42,7 @@ var appprovider = function(lst){
         var options = { watch: false, detailedReport: true,
             outDir: "./release",
             minify: true,
-            scopeHoist: true,
+            scopeHoist: false,
             sourceMaps: false
         };
         var bundler = new bd(input, options);
