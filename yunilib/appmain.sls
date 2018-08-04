@@ -48,26 +48,21 @@
       (define (counter-object)
         (js-call 
           createReactClass
-          (let* ((this0 #f)
-                 (handleClick (js-closure
-                                (lambda (e)
-                                  (count++)
-                                  (PCK 'COUNT count this0)
-                                  (when this0
-                                    (js-invoke this0 "setState" theCounter))))))
-            (js-obj
-              "render" (wrap-this this
-                                  (unless this0
-                                    (set! this0 this))
-                                  (js-call e Button
-                                           (js-obj "color" "primary"
-                                                   "onClick" handleClick)
-                                           (number->string
-                                             (js-ref (js-ref this "state")
-                                                     "count"))))
+          (js-obj
+            "render" (wrap-this this
+                                (js-call e Button
+                                         (js-obj "color" "primary"
+                                                 "onClick" 
+                                                 (js-ref this "handleClick"))
+                                         (number->string
+                                           (js-ref (js-ref this "state")
+                                                   "count"))))
 
-              "handleClick" handleClick
-              "getInitialState" (js-closure (lambda () theCounter))))))
+            "handleClick" (wrap-this this
+                                     (count++)
+                                     (PCK 'COUNT count)
+                                     (js-invoke this "setState" theCounter))
+            "getInitialState" (js-closure (lambda () theCounter)))))
       (define (main-app)
         (js-call 
           createReactClass
