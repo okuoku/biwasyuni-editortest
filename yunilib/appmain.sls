@@ -9,7 +9,7 @@
 (define %thiswrap (yuni/js-import "thiswrap"))
 (define-syntax wrap-this   ;; Yuni generic-runtime requires 
   (syntax-rules ()         ;; EVERY syntax-rules as top-level form
-    ((_ props form ...)
+    ((_ this form ...)
      (js-call %thiswrap (js-closure (lambda (this) form ...))))))
 
 ;; Globals
