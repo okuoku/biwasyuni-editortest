@@ -42,7 +42,7 @@ biwasyuni.add_module("ReactFragment", r.Fragment);
 biwasyuni.add_module("pp", pp);
 biwasyuni.set_current_fs(loadfs);
 
-d.render(e("div", null, "Hello."), root); // debug
+d.render(e("div", null, "Starting yuni..."), root); // debug
 
 biwasyuni.run("(load \"boot.scm\")", 
               function(res){ console.log("init done.", res); },
