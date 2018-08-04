@@ -10,7 +10,6 @@
     "browserfs": "^1.4.3",
     "create-react-class": "^15.6.3",
     "monaco-editor": "^0.13.1",
-    "popper.js": "^1.14.3",
     "prop-types": "^15.6.2",
     "prosemirror-markdown": "^1.1.1",
     "prosemirror-tables": "^0.7.6",
