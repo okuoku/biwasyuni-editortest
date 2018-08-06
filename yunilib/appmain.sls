@@ -1,6 +1,6 @@
 (library (appmain)
          (export main)
-         (import (yuni scheme))
+         (import (yuni scheme) (testlib a))
 
 (define js-load-async (yuni/js-import "js-load-async"))
 (define (delay-load libname)

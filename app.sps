@@ -1,4 +1,4 @@
-(load "yunilib/appmain.sls")
+;(load "yunilib/appmain.sls")
 
 (import (appmain))
 
