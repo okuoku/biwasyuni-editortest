@@ -75,8 +75,6 @@ var appprovider = function(lst){
             var dest = e.pth;
             fse.copySync(source, "release/" + dest);
         });
-        // Copy bootloader
-        fse.copySync("dist/boot.scm", "release/boot.scm");
         // Bundle
         var options = { watch: false, detailedReport: true,
             outDir: "./release",
