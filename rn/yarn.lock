@@ -436,6 +436,11 @@
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/@webcomponents/webcomponentsjs/-/webcomponentsjs-2.0.4.tgz#fe18c288f99b7103e9ae7a766020f9702cedcc08"
 
+"@yuniscm/biwasyuni@../biwasyuni":
+  version "0.0.2"
+  dependencies:
+    biwascheme "*"
+
 abab@^1.0.4:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/abab/-/abab-1.0.4.tgz#5faad9c2c07f60dd76770f71cf025b62a63cfd4e"
@@ -1416,6 +1421,14 @@ big-integer@^1.6.7:
 binaryextensions@~1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/binaryextensions/-/binaryextensions-1.0.1.tgz#1e637488b35b58bda5f4774bf96a5212a8c90755"
+
+biwascheme@*:
+  version "0.6.8"
+  resolved "https://registry.yarnpkg.com/biwascheme/-/biwascheme-0.6.8.tgz#dea50c99fa479dfdd0929386fe3e25df2a4f4fba"
+  dependencies:
+    optparse "1.0.5"
+    underscore "1.2.2"
+    underscore.string "2.0.0"
 
 bl@^1.0.0:
   version "1.2.2"
@@ -5142,6 +5155,10 @@ options@>=0.0.5:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/options/-/options-0.0.6.tgz#ec22d312806bb53e731773e7cdaefcf1c643128f"
 
+optparse@1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/optparse/-/optparse-1.0.5.tgz#75e75a96506611eb1c65ba89018ff08a981e2c16"
+
 ordered-read-streams@^0.3.0:
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/ordered-read-streams/-/ordered-read-streams-0.3.0.tgz#7137e69b3298bb342247a1bbee3881c80e2fd78b"
@@ -6696,12 +6713,20 @@ ultron@~1.1.0:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/ultron/-/ultron-1.1.1.tgz#9fe1536a10a664a65266a1e3ccf85fd36302bc9c"
 
+underscore.string@2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/underscore.string/-/underscore.string-2.0.0.tgz#7470858a54a0bb3560d037da56dcc67b5181e11a"
+
 underscore.string@^3.0.3:
   version "3.3.4"
   resolved "https://registry.yarnpkg.com/underscore.string/-/underscore.string-3.3.4.tgz#2c2a3f9f83e64762fdc45e6ceac65142864213db"
   dependencies:
     sprintf-js "^1.0.3"
     util-deprecate "^1.0.2"
+
+underscore@1.2.2:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/underscore/-/underscore-1.2.2.tgz#74dd40e9face84e724eb2edae945b8aedc233ba3"
 
 union-value@^1.0.0:
   version "1.0.0"
