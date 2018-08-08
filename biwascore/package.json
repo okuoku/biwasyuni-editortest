@@ -1,7 +1,7 @@
 {
   "name": "@yuniscm/biwascore",
   "version": "0.0.1",
-  "main": "./biwasyuni.js",
+  "main": "./biwascore_module.js",
   "license": "MIT",
   "dependencies": {
     "underscore": "^1.9.1",
