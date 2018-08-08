@@ -5,8 +5,7 @@
  * @license Licensed under the MIT license.
  */
 
-var BiwaScheme = BiwaScheme || {};
+var BiwaScheme = {};
 
-BiwaScheme.Version = "@VERSION@";  // TODO: deprecate this
-BiwaScheme.VERSION = "@VERSION@";
-BiwaScheme.GitCommit = "@GIT_COMMIT@";
+BiwaScheme.VERSION = "0.6.8.yuni";
+BiwaScheme.GitCommit = "none";
