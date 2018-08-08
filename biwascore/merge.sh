@@ -21,4 +21,5 @@ cat core_module_preamble.js src_header/version.js src_header/header.js \
     src_system/call.js \
     src_system/interpreter.js \
     src_system/promise.js \
+    src_stdlib/infra.js \
     core_module_postamble.js > biwascore.js
