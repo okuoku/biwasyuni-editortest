@@ -2,10 +2,9 @@
   "name": "@yuniscm/biwascore",
   "version": "0.0.1",
   "main": "./biwasyuni.js",
-  "bin": {
-      "biwasyuni": "./biwasyuni.js"
-  },
   "license": "MIT",
   "dependencies": {
+    "underscore": "^1.9.1",
+    "underscore.string": "^3.3.4"
   }
 }
