@@ -7,13 +7,13 @@ var loadfs = function(){
             // FIXME: Implement JSON archive case
             var asset = assets[path];
             if(! asset.FIXMEFIXMEFIXME){ /* Debugging */
-                var uri = im.resolveAssetSource(asset);
+                var uri = im.resolveAssetSource(asset).uri;
+                console.log("Loading ", uri);
                 fetch(uri).then(res => {
-                    if(res.ok){
-                        res.text().then(text => callback(false, text));
-                    }else{
-                        callback("Error", false);
-                    }
+                    // FIXME: Error handling..?
+                    res.text().then(function(text){
+                        callback(false, text);
+                    });
                 });
             }else{
                 console.log("loader_biwasyuni: no uri? ????");
