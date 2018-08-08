@@ -1434,7 +1434,7 @@
 //(string-titlecase string)    procedure
 //(string-foldcase string)    procedure
 
-  BiwaScheme.make_string_ci_function = function(compare){
+  var make_string_ci_function = function(compare){
     return function(ar){
       assert_string(ar[0]);
       var str = ar[0].toUpperCase();
