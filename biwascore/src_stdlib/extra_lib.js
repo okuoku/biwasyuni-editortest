@@ -1,5 +1,5 @@
 
-if( typeof(BiwaScheme)!='object' ) BiwaScheme={}; with(BiwaScheme) {
+//if( typeof(BiwaScheme)!='object' ) BiwaScheme={}; with(BiwaScheme) {
   define_libfunc("html-escape", 1, 1, function(ar){
     assert_string(ar[0]);
     return _.escape(ar[0]);
@@ -415,6 +415,6 @@ if( typeof(BiwaScheme)!='object' ) BiwaScheme={}; with(BiwaScheme) {
   //Macro: rxmatch-cond clause ... 
   //Macro: rxmatch-case string-expr clause ... 
 
-}
+//}
 
 

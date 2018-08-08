@@ -3,14 +3,17 @@
 // see also: test/node_functions.js
 //
 
-(function(){
-  if(BiwaScheme.on_node){
+//(function(){
+  //if(BiwaScheme.on_node){
+  var node = BiwaScheme.node_apis;
+/*
     var node = {
       fs: require('fs'),
       path: require('path'),
       process: process
     };
-  }
+*/
+  //}
 
   // Defines library functions which only works on Node.
   // - On Node: same as define_libfunc
@@ -87,4 +90,4 @@
     return BiwaScheme.js_obj_to_alist(node.process.env);
   });
 
-})();
+//})();

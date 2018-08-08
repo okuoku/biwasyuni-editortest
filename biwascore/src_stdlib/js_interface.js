@@ -1,4 +1,4 @@
-if( typeof(BiwaScheme)!='object' ) BiwaScheme={}; with(BiwaScheme) {
+//if( typeof(BiwaScheme)!='object' ) BiwaScheme={}; with(BiwaScheme) {
 
   //
   // interface to javascript
@@ -335,4 +335,4 @@ if( typeof(BiwaScheme)!='object' ) BiwaScheme={}; with(BiwaScheme) {
   define_console_func("warn");
   define_console_func("error");
 
-}
+//}

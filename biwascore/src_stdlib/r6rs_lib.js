@@ -2,7 +2,7 @@
 // R6RS Base library
 //
 
-if( typeof(BiwaScheme)!='object' ) BiwaScheme={}; with(BiwaScheme) {
+//if( typeof(BiwaScheme)!='object' ) BiwaScheme={}; with(BiwaScheme) {
   ///
   /// R6RS Base library
   ///
@@ -3434,4 +3434,4 @@ if( typeof(BiwaScheme)!='object' ) BiwaScheme={}; with(BiwaScheme) {
     assert_procedure(ar[0]);
     return BiwaScheme.Promise.fresh(ar[0]);
   });
-}
+//}
