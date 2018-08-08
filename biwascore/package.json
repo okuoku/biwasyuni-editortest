@@ -1,0 +1,11 @@
+{
+  "name": "@yuniscm/biwascore",
+  "version": "0.0.1",
+  "main": "./biwasyuni.js",
+  "bin": {
+      "biwasyuni": "./biwasyuni.js"
+  },
+  "license": "MIT",
+  "dependencies": {
+  }
+}
