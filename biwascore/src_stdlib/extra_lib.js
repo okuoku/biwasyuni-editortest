@@ -23,7 +23,7 @@
   // Object -> alist
   // (number, boolean, string, 
   //
-  BiwaScheme.json2sexp = function(json){
+  var json2sexp = function(json){
     switch(true){
     case _.isNumber(json) ||
          _.isString(json) ||
