@@ -4,3 +4,6 @@
 [submodule "yuni"]
 	path = yuni
 	url = https://github.com/okuoku/yuni
+[submodule "biwascore"]
+	path = biwascore
+	url = https://github.com/okuoku/biwascore
