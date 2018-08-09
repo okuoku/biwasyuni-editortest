@@ -7,7 +7,15 @@ var buildtype = process.argv[2];
 
 var genboot = function(pth, lst){
     var out = "(define (command-line) '(\"\" \"\" \"\" \"\"))\n";
-    lst.forEach(e => { out += "(load \"" + e.pth + "\")\n"; });
+    lst.forEach(e => { 
+        out += "(load \"" + e.pth + "\")\n"; 
+        if(e.alias){
+            var fromname = e.libname.join(" ");
+            var toname = e.alias.join(" ");
+            out += "(yuni/register-library-alias! '(" + fromname +
+                ") '(" + toname + "))\n";
+        }
+    });
     fs.writeFileSync(pth, out);
 };
 
