@@ -70,10 +70,14 @@
   dependencies:
     csstype "^2.2.0"
 
+"@yuniscm/biwascore@./biwascore":
+  version "0.0.1"
+  dependencies:
+    underscore "^1.9.1"
+    underscore.string "^3.3.4"
+
 "@yuniscm/biwasyuni@./biwasyuni":
   version "0.0.2"
-  dependencies:
-    biwascheme "*"
 
 abbrev@1:
   version "1.1.1"
@@ -806,14 +810,6 @@ binary-extensions@^1.0.0:
 bindings@~1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/bindings/-/bindings-1.2.1.tgz#14ad6113812d2d37d72e67b4cacb4bb726505f11"
-
-biwascheme@*:
-  version "0.6.8"
-  resolved "https://registry.yarnpkg.com/biwascheme/-/biwascheme-0.6.8.tgz#dea50c99fa479dfdd0929386fe3e25df2a4f4fba"
-  dependencies:
-    optparse "1.0.5"
-    underscore "1.2.2"
-    underscore.string "2.0.0"
 
 bl@^1.0.0:
   version "1.2.2"
@@ -4176,10 +4172,6 @@ optionator@^0.8.1:
     type-check "~0.3.2"
     wordwrap "~1.0.0"
 
-optparse@1.0.5:
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/optparse/-/optparse-1.0.5.tgz#75e75a96506611eb1c65ba89018ff08a981e2c16"
-
 ora@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/ora/-/ora-2.1.0.tgz#6caf2830eb924941861ec53a173799e008b51e5b"
@@ -5691,6 +5683,10 @@ split-string@^3.0.1, split-string@^3.0.2:
   dependencies:
     extend-shallow "^3.0.0"
 
+sprintf-js@^1.0.3:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/sprintf-js/-/sprintf-js-1.1.1.tgz#36be78320afe5801f6cea3ee78b6e5aab940ea0c"
+
 sprintf-js@~1.0.2:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/sprintf-js/-/sprintf-js-1.0.3.tgz#04e6926f662895354f3dd015203633b857297e2c"
@@ -6171,13 +6167,16 @@ unbzip2-stream@^1.0.9:
     buffer "^3.0.1"
     through "^2.3.6"
 
-underscore.string@2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/underscore.string/-/underscore.string-2.0.0.tgz#7470858a54a0bb3560d037da56dcc67b5181e11a"
+underscore.string@^3.3.4:
+  version "3.3.4"
+  resolved "https://registry.yarnpkg.com/underscore.string/-/underscore.string-3.3.4.tgz#2c2a3f9f83e64762fdc45e6ceac65142864213db"
+  dependencies:
+    sprintf-js "^1.0.3"
+    util-deprecate "^1.0.2"
 
-underscore@1.2.2:
-  version "1.2.2"
-  resolved "https://registry.yarnpkg.com/underscore/-/underscore-1.2.2.tgz#74dd40e9face84e724eb2edae945b8aedc233ba3"
+underscore@^1.9.1:
+  version "1.9.1"
+  resolved "https://registry.yarnpkg.com/underscore/-/underscore-1.9.1.tgz#06dce34a0e68a7babc29b365b8e74b8925203961"
 
 unicode-trie@^0.3.1:
   version "0.3.1"
@@ -6262,7 +6261,7 @@ use@^3.1.0:
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/use/-/use-3.1.1.tgz#d50c8cac79a19fbc20f2911f56eb973f4e10070f"
 
-util-deprecate@~1.0.1:
+util-deprecate@^1.0.2, util-deprecate@~1.0.1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/util-deprecate/-/util-deprecate-1.0.2.tgz#450d4dc9fa70de732762fbd2d4a28981419a0ccf"
 
