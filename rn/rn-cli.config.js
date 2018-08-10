@@ -16,6 +16,7 @@ var config = {
       return ["scm", "sps", "sls" ];
   },
   getProjectRoots(){
+      console.log(roots);
       return roots;
   }
 };

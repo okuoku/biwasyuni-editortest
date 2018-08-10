@@ -1,6 +1,8 @@
 var by = require("../../biwasyuni/biwasyuni_node.js");
 var fs = require("fs");
 
+var entrypoints = ["./app.sps"];
+
 var genboot = function(pth, lst){
     var out = "(define (command-line) '(\"\" \"\" \"\" \"\"))\n";
     lst.forEach(e => { 
@@ -16,7 +18,7 @@ var genboot = function(pth, lst){
 };
 
 function genlist(lst){
-    lst.push({libname: false, dir: "..", pth: "app.sps"});
+    lst.push({libname: false, dir: ".", pth: "app.sps"});
 
     if(! fs.existsSync("gen")){
         fs.mkdirSync("gen");
@@ -38,4 +40,4 @@ function genlist(lst){
     fs.writeFileSync("gen/assets.js", out);
 }
 
-by.gen_filelist("../yuni", ["../yunilib"], ["../app.sps"], genlist);
+by.gen_filelist("../yuni", ["../yunilib"], entrypoints, genlist);

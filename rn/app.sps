@@ -1,6 +1,8 @@
-(import (appmain))
+;; FIXME: It seems we cannot load ../app.sps using Metro bundler...
 
-(display 'INIT0)
+(import (appmain-rn))
+
+(display 'INIT0-RN)
 (newline)
 
 (main)
