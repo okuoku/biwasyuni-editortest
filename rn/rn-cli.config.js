@@ -6,10 +6,10 @@ var roots = [".", ".."].map(e => path.resolve(__dirname, e));
 
 var config = {
   getPlatforms() {
-    return ["dom"];
+    return ["dom", "windows"];
   },
   getProvidesModuleNodeModules() {
-    return ["react-native", "react-native-dom"];
+    return ["react-native", "react-native-dom", "react-native-windows"];
   },
   // FIXME: Resent RN commit introduced getAssetExt()
   getAssetExts(){

@@ -12,7 +12,7 @@ const ReactNativeDomOptions = {
 // App Initialization ============================================================
 const app = new RNDomInstance(
   rnBundlePath,
-  "editortest",
+  "editortestrn",
   document.body,
   ReactNativeDomOptions
 );
