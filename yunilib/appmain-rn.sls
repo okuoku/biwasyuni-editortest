@@ -14,17 +14,9 @@
 
 ;; Globals
 (define e (yuni/js-import "e"))
-(define d (yuni/js-import "d"))
 ;; Delayed initialized components
 (define Mainapp #f)
 
-(define (pp obj)
-  (js-call (yuni/js-import "pp") obj))
-
-(define genthisref
-  (let ((g (yuni/js-import "genthisref")))
-   (lambda () (js-call g))))
-         
 (define (init-classes!) 
   (PCK 'INIT)
   (define count 0)
@@ -34,62 +26,29 @@
     (js-set! theCounter "count" count)
     theCounter)
   (let ((createReactClass (yuni/js-import "createReactClass"))
-        (mui (delay-load "materialui")))
-    (define (m sym)
-      (let ((r (js-ref mui (if (symbol? sym) (symbol->string sym) sym))))
-       (PCK 'MUI sym '=> r)
+        (libs (yuni/js-import "rn-libs")))
+    (define (l sym)
+      (let ((r (js-ref libs (if (symbol? sym) (symbol->string sym) sym))))
+       (PCK 'LIB sym '=> r)
        r))
-    (let ((CssBaseline (m 'CssBaseline))
-          (AppBar      (m 'AppBar))
-          (Toolbar     (m 'Toolbar))
-          (Typography  (m 'Typography))
-          (Button      (m 'Button))
-          (ReactFragment (yuni/js-import "ReactFragment")))
-      (define (counter-object)
-        (js-call 
-          createReactClass
-          (js-obj
-            "render" (wrap-this this
-                                (js-call e Button
-                                         (js-obj "color" "primary"
-                                                 "onClick" 
-                                                 (js-ref this "handleClick"))
-                                         (number->string
-                                           (js-ref (js-ref this "state")
-                                                   "count"))))
-
-            "handleClick" (wrap-this this
-                                     (count++)
-                                     (PCK 'COUNT count)
-                                     (js-invoke this "setState" theCounter))
-            "getInitialState" (js-closure (lambda () theCounter)))))
+    (let ((Text (l 'Text))
+          (View (l 'View)))
       (define (main-app)
         (js-call 
           createReactClass
           (js-obj "render"
                   (wrap-this
                     _
-                    (js-call e ReactFragment
+                    (js-call e View
                              #f
-                             (js-call e CssBaseline)
-                             (js-call e AppBar 
-                                      (js-obj "position" "static")
-                                      (js-call e Toolbar
-                                               (js-obj "variant" "dense")
-                                               (js-call e Typography
-                                                        #f
-                                                        "Title")))
-                             (js-call e (counter-object) theCounter))))))
-
+                             (js-call e Text #f "Line1")
+                             (js-call e Text #f "Line2")
+                             (js-call e Text #f "Line3"))))))
       (set! Mainapp (main-app)))))
 
 (define (main)
-  #|
   (init-classes!)
-  (js-invoke d "render" (js-call e Mainapp) (yuni/js-import "document-root"))
-  |#
-  'ok
-  )
+  Mainapp)
 
 (PCK 'LOAD-RN)
 )

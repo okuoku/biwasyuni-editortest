@@ -12,6 +12,8 @@ import {
   View
 } from 'react-native';
 
+import startup from "./startup";
+
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +
     'Cmd+D or shake for dev menu',
@@ -21,20 +23,37 @@ const instructions = Platform.select({
 
 type Props = {};
 export default class App extends Component<Props> {
+  constructor() {
+      super();
+      this.yuni_loaded = false;
+      startup.startup({
+                      Text:Text,
+                      View:View
+      }, theComponent => {
+          this.yuni_loaded = true;
+          this.theComponent = theComponent;
+          this.forceUpdate();
+      });
+  };
   render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit App.js
-        </Text>
-        <Text style={styles.instructions}>
-          {instructions}
-        </Text>
-      </View>
-    );
+      if(this.yuni_loaded){
+          console.log("Rendering...", this.theComponent);
+          return (<this.theComponent />);
+      }else{
+          return (
+                  <View style={styles.container}>
+                  <Text style={styles.welcome}>
+                  Welcome to React Native!
+                  </Text>
+                  <Text style={styles.instructions}>
+                  To get started, edit App.js
+                  </Text>
+                  <Text style={styles.instructions}>
+                  {instructions}
+                  </Text>
+                  </View>
+          );
+      }
   }
 }
 
