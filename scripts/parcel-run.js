@@ -1,4 +1,5 @@
-var approot_url = "/release"; // NB: Override on debug build
+//var approot_url = "/release"; // NB: Override on debug build
+var approot_url = "";
 
 var bd =require('../node_modules/parcel');
 var express  = require('../node_modules/express');
