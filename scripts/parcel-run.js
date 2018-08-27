@@ -1,9 +1,19 @@
+var approot_url = "/release"; // NB: Override on debug build
+
 var bd =require('../node_modules/parcel');
 var express  = require('../node_modules/express');
 var Path = require('path');
 var fs = require('fs');
 var fse = require('fs-extra');
 var buildtype = process.argv[2];
+
+var writeconfig = function(pth){
+    var cfg = {
+        approot: approot_url
+    };
+    var out = "module.exports = " + JSON.stringify(cfg) + ";\n";
+    fs.writeFileSync(pth, out);
+};
 
 var genboot = function(pth, lst){
     var out = "(define (command-line) '(\"\" \"\" \"\" \"\"))\n";
@@ -23,20 +33,28 @@ var genboot = function(pth, lst){
 var appprovider = function(lst){
     // lst = [ LIB* ]
     // LIB = {libname: #f/[name*], dir: DIR, pth: PATH}
-    const input = Path.join(__dirname, "../index.html");
 
     // Add "app.sps" as an entrypoint
     lst.push({libname: false, dir: ".", pth: "app.sps"});
 
     if(buildtype == "debug" || buildtype == "debug_minify"){
+        const input = Path.join(__dirname, "../index_debug.html");
+        // Override approot_url
+        approot_url = "";
+
         // generate bootloader
         if(! fs.existsSync("dist")){
             fs.mkdirSync("dist");
         }
         genboot("dist/boot.scm", lst);
+        writeconfig("dist/appconfig.js");
 
         // It seems detailedReport requires !watch
-        var options = { watch: false, detailedReport: true };
+        var options = { 
+            outFile: "index.html",
+            watch: false, 
+            detailedReport: true 
+        };
         if(buildtype == "debug_minify"){
             options["minify"] = true;
             options["sourceMaps"] = false;
@@ -71,11 +89,13 @@ var appprovider = function(lst){
 
         app.listen(8080);
     }else if(buildtype == "release"){
+        const input = Path.join(__dirname, "../index_release.html");
         // generate bootloader
         if(! fs.existsSync("release")){
             fs.mkdirSync("release");
         }
         genboot("release/boot.scm", lst);
+        writeconfig("release/appconfig.js");
 
         // Copy asset files to the destination
         lst.forEach(e => {
@@ -85,10 +105,13 @@ var appprovider = function(lst){
         });
         // Bundle
         var options = { watch: false, detailedReport: true,
+            outFile: "index.html",
             outDir: "./release",
             minify: true,
             scopeHoist: false,
-            sourceMaps: false
+            sourceMaps: false,
+            publicUrl: approot_url
+
         };
         var bundler = new bd(input, options);
         bundler.bundle();
